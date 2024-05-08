@@ -25,6 +25,8 @@
 			</rooms-search>
 		</slot>
 
+    <slot name="rooms-header-under" />
+
 		<loader :show="loadingRooms" type="rooms">
 			<template v-for="(idx, name) in $slots" #[name]="data">
 				<slot :name="name" v-bind="data" />

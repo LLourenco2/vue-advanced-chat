@@ -240,7 +240,8 @@ export default {
 			showRoomsList: true,
 			isMobile: false,
 			showMediaPreview: false,
-			previewFile: {}
+			previewFile: {},
+			resizeObserver: null,
 		}
 	},
 
@@ -471,8 +472,27 @@ export default {
 		castObject(val) {
 			return !val ? {} : typeof val === 'object' ? val : JSON.parse(val)
 		},
+		outputsize() {
+			width.value = textbox.offsetWidth
+			height.value = textbox.offsetHeight
+		},
+		outputsize() {
+			let divWidth = document.querySelector('div[vg-resizable-container]');
+			if (divWidth) {
+				this.isMobile = divWidth.offsetWidth < Number(this.responsiveBreakpoint)
+			} else {
+				this.updateResponsive();
+			}
+
+		},
 		updateResponsive() {
-			this.isMobile = window.innerWidth < Number(this.responsiveBreakpoint)
+			let divWidth = document.querySelector('div[vg-resizable-container]');
+			if (divWidth) {
+				this.outputsize();
+				this.resizeObserver = new ResizeObserver(this.outputsize).observe(divWidth)
+			} else {
+				this.isMobile = window.innerWidth < Number(this.responsiveBreakpoint)
+			}
 		},
 		toggleRoomsList() {
 			this.showRoomsList = !this.showRoomsList

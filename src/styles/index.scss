@@ -36,3 +36,18 @@
 @import '../components/Loader/Loader';
 @import '../components/SvgIcon/SvgIcon';
 @import '../components/ProgressBar/ProgressBar';
+
+*::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 15px;
+    border: 3px solid gray;
+}

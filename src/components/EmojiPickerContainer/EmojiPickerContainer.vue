@@ -23,8 +23,8 @@
 					:class="{ 'vac-picker-reaction': emojiReaction }"
 					:style="{
 						height: `${emojiPickerHeight}px`,
-						top: positionTop ? emojiPickerHeight : `${emojiPickerTop}px`,
-						right: emojiPickerRight,
+						// top: positionTop ? emojiPickerHeight : `${emojiPickerTop}px`,
+						// right: emojiPickerRight,
 						display: emojiPickerTop || !emojiReaction ? 'initial' : 'none'
 					}"
 				>

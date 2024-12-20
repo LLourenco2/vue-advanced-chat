@@ -22,7 +22,7 @@
 	border-radius: 20px;
 	padding: 12px 16px;
 	box-sizing: content-box;
-	font-size: 16px;
+	font-size: var(--chat-font-size-input);
 	background: var(--chat-bg-color-input);
 	color: var(--chat-color);
 	caret-color: var(--chat-color-caret);

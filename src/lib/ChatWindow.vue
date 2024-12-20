@@ -1,5 +1,5 @@
 <template>
-	<div class="vac-card-window" :style="[{ height }, cssVars]">
+	<div class="vac-card-window" :id="uniqueId" :style="[{ height }, cssVars]">
 		<div class="vac-chat-container">
 			<rooms-list
 				v-if="!singleRoomCasted"
@@ -242,6 +242,7 @@ export default {
 			showMediaPreview: false,
 			previewFile: {},
 			resizeObserver: null,
+      uniqueId: Math.floor(Math.random() * 10000000)
 		}
 	},
 
@@ -455,6 +456,10 @@ export default {
 		})
 	},
 
+  mounted(){
+    this.updateResponsive()
+  },
+
 	updated() {
 		const slots = document.querySelectorAll('[slot]')
 		if (this.slots.length !== slots.length) {
@@ -477,18 +482,17 @@ export default {
 			height.value = textbox.offsetHeight
 		},
 		outputsize() {
-			let divWidth = document.querySelector('div[vg-resizable-container]');
+			let divWidth = document.querySelector('vue-advanced-chat').shadowRoot.getElementById(this.uniqueId);
 			if (divWidth) {
 				this.isMobile = divWidth.offsetWidth < Number(this.responsiveBreakpoint)
 			} else {
-				this.updateResponsive();
+				this.updateResponsive()
 			}
-
 		},
 		updateResponsive() {
-			let divWidth = document.querySelector('div[vg-resizable-container]');
+			let divWidth = document.querySelector('vue-advanced-chat').shadowRoot.getElementById(this.uniqueId);
 			if (divWidth) {
-				this.outputsize();
+				this.outputsize()
 				this.resizeObserver = new ResizeObserver(this.outputsize).observe(divWidth)
 			} else {
 				this.isMobile = window.innerWidth < Number(this.responsiveBreakpoint)

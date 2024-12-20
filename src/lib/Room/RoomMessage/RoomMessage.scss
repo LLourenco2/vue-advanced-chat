@@ -3,7 +3,7 @@
 		border-radius: 4px;
 		text-align: center;
 		margin: 10px auto;
-		font-size: 12px;
+		font-size: var(--chat-message-font-size-system);
 		padding: 4px;
 		display: block;
 		overflow-wrap: break-word;
@@ -123,7 +123,7 @@
 		background-color: var(--chat-message-bg-color);
 		color: var(--chat-message-color);
 		border-radius: 8px;
-		font-size: 14px;
+		font-size: var(--chat-message-font-size);
 		padding: 6px 9px 3px;
 		white-space: pre-line;
 		max-width: 100%;
@@ -181,7 +181,7 @@
 	}
 
 	.vac-text-timestamp {
-		font-size: 10px;
+		font-size: var(--chat-message-font-size-timestamp);
 		color: var(--chat-message-color-timestamp);
 		text-align: right;
 	}

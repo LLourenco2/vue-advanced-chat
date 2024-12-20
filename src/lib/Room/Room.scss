@@ -46,7 +46,7 @@
 	}
 
 	.vac-text-started {
-		font-size: 14px;
+		font-size: var(--chat-message-font-size);
 		color: var(--chat-message-color-started);
 		font-style: italic;
 		text-align: center;

@@ -93,6 +93,11 @@
 		color: var(--chat-header-color-name);
 	}
 
+	.vac-link:hover {
+		color: darkblue;
+		text-decoration: underline;
+	}
+
 	.vac-room-info {
 		font-size: 13px;
 		line-height: 18px;

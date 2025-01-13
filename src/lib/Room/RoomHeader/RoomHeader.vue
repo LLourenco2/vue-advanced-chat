@@ -57,9 +57,16 @@
 						</slot>
 						<slot name="room-header-info">
 							<div class="vac-text-ellipsis">
-								<div class="vac-room-name vac-text-ellipsis">
+								<div :class="'vac-room-name vac-text-ellipsis' + (room.hasLink ? ' vac-link': '')">
 									{{ room.roomName }}
+                  <svg-icon v-if="room.hasLink" name="externalLink" style="
+                      padding-left: 10px;
+                      width: 14px;
+                      margin: 0;
+                      vertical-align: top;
+                  "/>
 								</div>
+
 								<div v-if="typingUsers" class="vac-room-info vac-text-ellipsis">
 									{{ typingUsers }}
 								</div>
